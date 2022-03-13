@@ -6,8 +6,9 @@ body {
   background-size: cover;
   color: brown;
   font-family: monospace;
-  padding: 50px;
   font-size: 20px;
+  margin: 5%;
+  text-shadow: 1px 1px 3px brown;
 }
 h1 {
   border-left-style: double;
@@ -19,16 +20,34 @@ h1 {
 h2 {
   font-size: 75px;
   color: grey;
+  text-shadow: 1px 1px 3px grey;
 }
 p:hover {
   border-left: 4px solid brown;
+
+  opacity: 1;
+}
+p {
+  background-color: white;
+  opacity: 0.8;
+  margin-right: 30%;
+  box-shadow: 5px 5px 6px gray;
+  text-align: justify;
+  padding: 10px;
+  border-radius: 5%;
 }
 table {
   border-color: brown;
   border-style: dotted;
   padding: 5px;
+  border-radius: 5%;
 }
 
 td {
   padding: 5px;
+}
+
+.logo {
+  border-radius: 50%;
+  box-shadow: 5px 5px 6px gray;
 }

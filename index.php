@@ -10,6 +10,7 @@
     </head>
 
     <body>
+            <img src="http://localhost/test/logo3.jpg" class="logo" width ="10%" />
 <?php
 
 try
