@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="style2.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-        <title>Test OPIXIDO</title>
-    </head>
-
-    <body>
-            <img src="http://localhost/test/logo3.jpg" class="logo" width ="10%" />
 <?php
 
 try
@@ -32,11 +19,32 @@ $filmsReq = 'SELECT * FROM lesFilms';
 $filmsDec = $mysqlClient->prepare($filmsReq);
 $filmsDec->execute();
 $films = $filmsDec->fetchAll();
+$filmsDec->closeCursor();
+$filmsJSON = json_encode($films);
 
 ?>
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style2.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+        <title>Test OPIXIDO</title>
+    </head>
+
+    <body>
+                <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+                <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+                <script src="films.js"></script>
+                
+
+
 <h1>Les films disponibles :</h1>
-<ul>
+        <div id="composant_react_1" > </div>
+
 
 <?php
 
@@ -50,7 +58,7 @@ foreach ($films as $film) {
         $personnes = $personnesDec->fetchAll();
        
 ?>
-        <li id="<?php echo "film_". $film['filmId']; ?>" >
+        <div id="<?php echo "film_". $film['filmId']; ?>" >
 
                 <h2><?php echo $film['titre']; ?></h2>
                 <h3><?php echo $film['annee']; ?></h3>        
@@ -75,10 +83,10 @@ foreach ($films as $film) {
 ?>                           
                 </table>
                 <p><?php echo $film['description']; ?></p>
-        </li>
+                </div>
 <?php
 }
 ?>
-</ul>
+
 </body>
 </html>
